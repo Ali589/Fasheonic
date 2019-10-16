@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import com.example.fasheonic.ui.Search.SearchFragment;
+import com.example.fasheonic.ui.chat.ChatFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,6 +15,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -74,7 +77,12 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.main_search_icon:
-                Toast.makeText(HomeActivity.this, "You selected search", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(HomeActivity.this, "You selected search", Toast.LENGTH_SHORT).show();
+                SearchFragment searchFragment = new SearchFragment();
+                //ChatFragment ch = new ChatFragment();
+                FragmentManager manager = getSupportFragmentManager();
+                getSupportActionBar().hide();
+                manager.beginTransaction().replace(R.id.nav_host_fragment,searchFragment).commit();
                 return true;
             case R.id.main_notification_icon:
 
