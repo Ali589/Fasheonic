@@ -2,34 +2,27 @@ package com.example.fasheonic;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.fasheonic.ui.Search.SearchFragment;
-import com.example.fasheonic.ui.chat.ChatFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
-import androidx.fragment.app.FragmentManager;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -78,11 +71,14 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.main_search_icon:
               //  Toast.makeText(HomeActivity.this, "You selected search", Toast.LENGTH_SHORT).show();
-                SearchFragment searchFragment = new SearchFragment();
+                //SearchFragment searchFragment = new SearchFragment();
                 //ChatFragment ch = new ChatFragment();
-                FragmentManager manager = getSupportFragmentManager();
-                getSupportActionBar().hide();
-                manager.beginTransaction().replace(R.id.nav_host_fragment,searchFragment).commit();
+               // FragmentManager manager = getSupportFragmentManager();
+                //getSupportActionBar().hide();
+               // manager.beginTransaction().replace(R.id.nav_host_fragment,searchFragment).commit();
+                Intent intent = new Intent(this,MainActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
             case R.id.main_notification_icon:
 
